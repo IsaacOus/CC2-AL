@@ -1,4 +1,4 @@
-package org.ouslimane.isaac.al.cc2al.domain;
+package org.ouslimane.isaac.al.cc2al.domain.user;
 
 import java.util.Objects;
 
@@ -8,6 +8,13 @@ public final class Job {
 
     public Job(String value) {
         this.value = Objects.requireNonNull(value);
+    }
+
+    @Override
+    public String toString() {
+        return "Job{" +
+                "value='" + value + '\'' +
+                '}';
     }
 
     @Override
@@ -23,10 +30,5 @@ public final class Job {
         return Objects.hash(value);
     }
 
-    @Override
-    public String toString() {
-        return "Job{" +
-                "value='" + value + '\'' +
-                '}';
-    }
+
 }

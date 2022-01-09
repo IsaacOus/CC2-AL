@@ -1,8 +1,8 @@
-package org.ouslimane.isaac.al.cc2al.domain;
+package org.ouslimane.isaac.al.cc2al.domain.user;
 
 import java.util.Objects;
 
-public class User {
+public final class User {
 
     private final UserId userId;
     private final String lastname;
@@ -10,14 +10,15 @@ public class User {
     private final EmailAddress email;
 
 
-    protected User(UserId userId, String lastname, String firstname, EmailAddress email){
+    public User(UserId userId, String lastname, String firstname, EmailAddress email){
         this.userId = userId;
         this.lastname = Objects.requireNonNull(lastname);
         this.firstname = Objects.requireNonNull(firstname);
         this.email = Objects.requireNonNull(email);
     }
 
-    public static User of(UserId userId,String lastname, String firstname, EmailAddress email){
+
+    static User of(UserId userId,String lastname, String firstname, EmailAddress email){
         return new User(userId, lastname,firstname,email);
     }
 

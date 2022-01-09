@@ -1,6 +1,5 @@
-package org.ouslimane.isaac.al.cc2al.domain;
+package org.ouslimane.isaac.al.cc2al.domain.user;
 
-import java.util.Objects;
 import java.util.UUID;
 
 public class UserId {
@@ -23,5 +22,10 @@ public class UserId {
         return value;
     }
 
-
+    @Override
+    public String toString() {
+        return "UserId{" +
+                "value='" + value + '\'' +
+                '}';
+    }
 }

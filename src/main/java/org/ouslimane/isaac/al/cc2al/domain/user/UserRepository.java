@@ -1,4 +1,4 @@
-package org.ouslimane.isaac.al.cc2al.domain;
+package org.ouslimane.isaac.al.cc2al.domain.user;
 
 import java.util.UUID;
 
