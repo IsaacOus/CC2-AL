@@ -1,23 +1,24 @@
 package org.ouslimane.isaac.al.cc2al.domain.project;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
-public final class Address {
+public class DailyRates {
 
-    private final String value;
+    private final BigDecimal value;
 
-    private Address(String value) {
+    private DailyRates(BigDecimal value) {
         this.value = value;
     }
 
-    public static Address of(String value){
-        return new Address(value);
+    public static DailyRates of(BigDecimal value){
+        return new DailyRates(value);
     }
 
     @Override
     public String toString() {
-        return "Address{" +
-                "value='" + value + '\'' +
+        return "DailyRates{" +
+                "value=" + value +
                 '}';
     }
 
@@ -25,8 +26,8 @@ public final class Address {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Address address = (Address) o;
-        return Objects.equals(value, address.value);
+        DailyRates that = (DailyRates) o;
+        return value.equals(that.value);
     }
 
     @Override

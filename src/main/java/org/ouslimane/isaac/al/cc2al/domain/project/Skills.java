@@ -2,21 +2,20 @@ package org.ouslimane.isaac.al.cc2al.domain.project;
 
 import java.util.Objects;
 
-public final class Address {
-
+public class Skills {
     private final String value;
 
-    private Address(String value) {
+    private Skills(String value) {
         this.value = value;
     }
 
-    public static Address of(String value){
-        return new Address(value);
+    public static Skills of(String value){
+        return new Skills(value);
     }
 
     @Override
     public String toString() {
-        return "Address{" +
+        return "Skills{" +
                 "value='" + value + '\'' +
                 '}';
     }
@@ -25,8 +24,8 @@ public final class Address {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Address address = (Address) o;
-        return Objects.equals(value, address.value);
+        Skills skills = (Skills) o;
+        return Objects.equals(value, skills.value);
     }
 
     @Override
