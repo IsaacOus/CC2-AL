@@ -1,9 +1,9 @@
 package org.ouslimane.isaac.al.cc2al.domain.register;
 
-import org.ouslimane.isaac.al.cc2al.domain.project.Project;
 import org.ouslimane.isaac.al.cc2al.domain.user.Provider;
 import org.ouslimane.isaac.al.cc2al.exception.DomainException;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -11,14 +11,12 @@ public final class Register {
 
     private UUID id;
     private RegisterStatus status;
+    private List<Provider> providerList;
 
-    private Register(UUID id, RegisterStatus status) {
+    public Register(UUID id, Provider provider) {
         this.id = id;
         this.status = status;
-    }
-
-    public static Register of(UUID id, RegisterStatus status){
-        return new Register(id,status);
+        this.providerList = providerList;
     }
 
     public void complete(){
@@ -29,14 +27,21 @@ public final class Register {
     public void addRegister(final Provider provider){
         validateRegister();
         validateProvider(provider);
-
+        providerList.add(provider);
     }
 
-
-
-    public void removeRegister(UUID id){
+    public void removeRegister(final UUID id){
         validateRegister();
+        final Provider provider = getProvider(id);
+        providerList.remove(provider);
+    }
 
+    private Provider getProvider(final UUID id){
+        return providerList.stream()
+                .filter(provider -> provider.getProviderId()
+                .equals(id))
+                .findFirst()
+                .orElseThrow(() -> new DomainException("Provider with " + id + "doesn't exist."));
     }
 
     public UUID getId() {

@@ -18,7 +18,7 @@ public final class User {
     }
 
 
-    static User of(UserId userId,String lastname, String firstname, EmailAddress email){
+    public static User of(UserId userId,String lastname, String firstname, EmailAddress email){
         return new User(userId, lastname,firstname,email);
     }
 
